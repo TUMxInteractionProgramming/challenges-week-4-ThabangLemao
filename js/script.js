@@ -1,6 +1,9 @@
 /* #6 start the #external #action and say hello */
 console.log("App is alive");
 
+/*Global variable*/
+var currentChannel = switchChannel;
+
 /**
  * #6 #Switcher function for the #channels name in the right app bar
  * @param channelName Text which is set
@@ -10,10 +13,11 @@ function switchChannel(channelName) {
     console.log("Tuning in to channel", channelName);
 
     //Write the new channel to the right app bar
-    document.getElementById('channel-name').innerHTML = channelName;
+    document.getElementById('channel-name').innerHTML = "#"+ channelName.name;
+    
 
     //#6 change the #channel #location
-    document.getElementById('channel-location').innerHTML = 'by <a href="http://w3w.co/upgrading.never.helps" target="_blank"><strong>upgrading.never.helps</strong></a>';
+    document.getElementById('channel-location').innerHTML = 'by <strong>'+ channelName.createdBy + '</strong>';
 
     /* #6 #liking channels on #click */
     $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star-o.png');
@@ -26,7 +30,8 @@ function switchChannel(channelName) {
 
 /* #6 #liking a channel on #click */
 function star() {
-    $('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star.png');
+    /*$('#channel-star').attr('src', 'http://ip.lfe.mw.tum.de/sections/star.png');*/
+    $('#Channel-Star').toggleClass('fa-star-o fa-star');
 }
 
 /**
